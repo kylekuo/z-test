@@ -1,0 +1,134 @@
+$viewport-lg: 1800px;
+
+.job-list {
+	--jl-gap: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: var(--jl-gap);
+	
+	@media screen and (min-width: $viewport-lg) {
+		display: grid;
+		grid-template-columns: min(25%, 480px) auto;
+		grid-template-rows: max-content auto;
+
+		& > h1 {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		& > .row-info {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		& > .controls {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		& > .row {
+			grid-column: 2;
+			grid-row: 2;
+		}
+	}
+
+	.controls {
+		--control-border: 2px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+		gap: var(--jl-gap);
+
+		@media screen and (min-width: $viewport-lg) {
+			flex: 0 0 25%;
+		}
+
+		button {
+			all: unset;
+			padding: .5em 1em;
+			border-width: var(--control-border);
+			border-style: solid;
+			border-color: rgb( var(--foreground-rgb) );
+			border-radius: var(--border-radius);
+			background-color: var(--background-start-rgb);
+			
+			max-width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			cursor: pointer;
+
+			transition: all .15s ease-out;
+			
+			&:hover {
+				background-color: rgba( var(--foreground-rgb), .33 );
+			}
+
+			&.selected {
+				background-color: rgb( var(--foreground-rgb) );
+				color: rgb( var(--background-start-rgb) );
+			}
+		}
+
+		label {
+			display: block;
+			width: 100%;
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+
+		.sort {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		.companies {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 1rem;
+
+			&.has-selected > button:not(.selected) {
+				opacity: .25;
+			}
+		}
+	}
+
+	.row-info {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		padding-top: var(--jl-gap);
+		border-width: 1px 0 0 0;
+		border-style: solid;
+		border-color: rgba( var(--foreground-rgb), .33 );
+
+		@media screen and (min-width: $viewport-lg) {
+			padding-top: 0;
+			border-width: 0;
+		}
+	}
+	
+	.row {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-auto-flow: row;
+		grid-auto-rows: auto;
+		gap: var(--jl-gap);
+		
+		@media screen and (min-width: 480px) {
+			grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+		}
+	}
+}

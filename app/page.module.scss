@@ -1,0 +1,25 @@
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: greenyellow;
+    text-underline-offset: .1em;
+    transition: all .15s ease-out;
+
+    &:hover {
+      text-decoration-color: transparent;
+      color: greenyellow;
+    }
+  }
+}

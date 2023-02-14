@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .job {
+    width: 100%;
+  }
+
+  pre {
+    max-width: 100%;
+    display: none;
+  }
+}

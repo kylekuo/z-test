@@ -1,0 +1,138 @@
+.job-card {
+	--jc-padd: 2rem;
+	--jc-gap: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: var(--jc-gap);
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb( var(--foreground-rgb) );
+	border-radius: var(--border-radius);
+	padding: var(--jc-padd);
+
+	background-color: rgba( var(--background-start-rgb), .5 );
+	backdrop-filter: blur(5px);
+
+	header {
+		display: grid;
+		grid-template-columns: 64px auto;
+		gap: var(--jc-gap);
+		padding-top: calc( var(--jc-gap) - var(--jc-padd) );
+
+		.info-col {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+		}
+
+		.title {
+			font-size: 1.6em;
+			font-weight: bold;
+		}
+		
+		.company {
+			font-size: 1em;
+			font-weight: normal;
+		}
+	}
+
+	.image-wrap {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 1;
+		border-radius: 9999px;
+		overflow: hidden;
+		
+		.image-placeholder {
+			--inset: 1px;
+			width: calc(100% - (2 * var(--inset)));
+			height: calc(100% - (2 * var(--inset)));
+			border-radius: inherit;
+			margin: var(--inset);
+
+			background-color: rgb( var(--foreground-rgb) );
+			color: rgb( var(--background-start-rgb) );
+
+			display: grid;
+			place-items: center;
+
+			font-size: 2em;
+			text-transform: uppercase;
+		}
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0;  
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.additional-info,
+	.description  {
+		padding-top: var(--jc-gap);
+		border-width: 1px 0 0 0;
+		border-style: solid;
+		border-color: rgba( var(--foreground-rgb), .5 );
+	}
+
+	.additional-info {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		.level-list {
+			display: inline-flex;
+			gap: .33rem;
+			& > *:not(:last-child)::after {
+				content: '/';
+				margin-left: .33rem;
+			}
+		}
+
+		& > *:not(:last-child)::after {
+			content: '•';
+			margin-left: 1rem;
+		}
+	}
+
+	.description {
+
+		display: -webkit-box;
+		-webkit-line-clamp: 8;
+		-webkit-box-orient: vertical; 
+		overflow: hidden;
+
+		ul, ol {
+			list-style-position: inside;
+		}
+
+	}
+
+	.item-link {
+		width: 100%;
+		padding: 1rem;
+		border-width: 1px;
+		border-style: solid;
+		border-color: rgb( var(--foreground-rgb) );
+		border-radius: 4px;
+		margin: auto -1px 0 -1px;
+
+		background-color: transparent;
+		text-align: center;
+		
+		&:hover {
+			background-color: rgb( var(--foreground-rgb) );
+			color: rgb( var(--background-start-rgb) );
+		}
+	}
+}
